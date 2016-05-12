@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="jumbotron">
+		<h3>The Review Point</h3>
+	</div>
+	<div th:include="header :: header"></div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h3 id="info"></h3>
+			<h3>
+				<span th:text="${error}"></span>
+			</h3>
+
+			<div class="form" id="myform">
+				<form th:action="userRegistration" th:object="${userData}"
+					class="form-horizontal" role="form" method="post">
+					<div class="form-group">
+						<label for="firstname"> Firstname :</label> <input type="text"
+							class="form-control" id="firstname" name="firstname" />
+					</div>
+					<div class="form-group">
+						<label for="lastname"> Lastname :</label> <input type="text"
+							class="form-control" id="firstname" name="lastname" />
+					</div>
+					<div class="form-group">
+						<label for="email"> Email address:</label> <input type="email"
+							class="form-control" id="email" name="email" />
+					</div>
+					<div class="form-group">
+						<label for="pwd">Password:</label> <input type="password"
+							class="form-control" id="password" name="password" />
+					</div>
+
+					<button id="update" type="submit" class="btn btn-success">Submit</button>
+				</form>
+
+			</div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div th:include="footer :: footer"></div>
+</body>
+</html>

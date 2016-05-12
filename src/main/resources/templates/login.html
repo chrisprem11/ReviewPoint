@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="jumbotron">
+		<h3 class="text-danger">The Review Point</h3>
+	</div>
+	<div th:include="header :: header"></div>
+	<div class="row">
+		<div class="col-md-4 col-sm-4 col-xs-4"></div>
+		<div class="col-md-4 col-sm-4 col-xs-4">
+			<div th:if="${param.error}" class="alert alert-error">
+				<h3 class="text-danger">Invalid username and password.</h3>
+			</div>
+			<div th:if="${param.logout}" class="alert alert-success">
+				<h3 class="text-success">You have been logged out.</h3>
+			</div>
+			<form class="form" action="#" th:action="@{/login}"
+				th:object="${loginData}" method="post">
+				<div class="form-group">
+					<label for="email">Email address:</label> <input type="email"
+						class="form-control" id="email" name="email" />
+				</div>
+				<div class="form-group">
+					<label for="pwd">Password:</label> <input type="password"
+						class="form-control" id="pwd" name="password" />
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" name="remember-me" />
+						Remember me</label>
+				</div>
+				<button type="submit" class="btn btn-success">Submit</button>
+				<a href="registration" class="btn btn-sm btn-primary"> Register
+					here</a>
+			</form>
+
+
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4"></div>
+	</div>
+	<div th:include="footer :: footer"></div>
+</body>
+</html>

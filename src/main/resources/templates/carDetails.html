@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Details and Review</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.star-rating.js"></script>
+<link rel="stylesheet" th:href="@{/css/fa-stars.css}" />
+<script>
+	jQuery(function($) {
+		$('.rating').star_rating();
+	});
+</script>
+</head>
+<body>
+	<div th:include="header :: header"></div>
+	<div class="container">
+		<div class="row">
+			<div class="panel panel-info col-md-12 colsm-12 col-xs-12">
+				<div class="panel-heading" th:each="carDetail : ${details}">
+					<h2 th:text="${carDetail.brand} + ' ' +${carDetail.model}"></h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3">
+							<img th:src="@{/img/left-box-2.jpg}"
+								class="img-responsive img-rounded" alt="Image" width="340"
+								height="240"></img>
+						</div>
+						<div th:each="carDetail : ${details}"
+							class="col-md-3 col-sm-3 col-xs-3">
+							<h3 class="text-danger">
+								<strong>Details :</strong>
+							</h3>
+							<h3 class="text-primary" th:text="${carDetail.details}"></h3>
+						</div>
+						<div th:each="carDetail : ${details}"
+							class="col-md-3 col-sm-3 col-xs-3">
+							<h3 class="text-danger">
+								<strong>Variant :</strong>
+							</h3>
+							<h3 class="text-primary" th:text="${carDetail.variant}"></h3>
+						</div>
+						<div th:each="carDetail : ${details}"
+							class="col-md-3 col-sm-3 col-xs-3">
+							<h3 class="text-danger">
+								<strong>Price :</strong>
+							</h3>
+							<h3 class="text-primary" th:text="${carDetail.price}"></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="back">
+				<h4>
+					<a th:href="@{/viewCars}" class="btn btn-sm btn-primary"> Go
+						back</a>
+				</h4>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="container">
+		<h2 class="text-primary">Related Reviews</h2>
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href="#collapse1">Collapsible Group 1</a>
+					</h4>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse in">
+					<div class="panel-body">Lorem ipsum dolor sit amet,
+						consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+						nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href="#collapse2">Collapsible Group 2</a>
+					</h4>
+				</div>
+				<div id="collapse2" class="panel-collapse collapse">
+					<div class="panel-body">Lorem ipsum dolor sit amet,
+						consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+						nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href="#collapse3">Collapsible Group 3</a>
+					</h4>
+				</div>
+				<div id="collapse3" class="panel-collapse collapse">
+					<div class="panel-body">Lorem ipsum dolor sit amet,
+						consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+						nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<h1 class="text-primary">Add your review.</h1>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<form role="form" th:action="review" th:object="${reviewData}"
+					method="post">
+
+					<div class="form-group">
+						<label> Write a review</label>
+						<textarea class="form-control" th:rows="5" name="review"></textarea>
+					</div>
+					<div class="form-group">
+						<label> Rating</label> <select name="rating">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+
+					</div>
+					<input type="submit" class="btn btn-info btn-md" />
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+	<div th:include="footer :: footer"></div>
+</body>
+</html>
