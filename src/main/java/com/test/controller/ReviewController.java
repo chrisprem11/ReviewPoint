@@ -19,15 +19,15 @@ public class ReviewController {
 	private ReviewService reviewService;
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
-	public String getReview(ReviewDTO reviewDTO, Authentication authentication, RedirectAttributes attributes) {
+	public ModelAndView getReview(ReviewDTO reviewDTO, Authentication authentication, RedirectAttributes attributes) {
 		Review review = reviewService.getReviews(reviewDTO, authentication);
 		if (null == review) {
 
-			return "carDetails";
+			return new ModelAndView("carDetails", "error","Opeartion Failed !");
 		}
 		attributes.addFlashAttribute("success", "Review Submitted Successfully !");
-		return "redirect:/carDetails";
-
+		
+		return new ModelAndView("redirect:/viewCars");
 	}
 
 }
