@@ -27,11 +27,12 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.exceptionHandling().accessDeniedPage("/error").and().authorizeRequests().antMatchers("/user/**")
-				.hasAnyAuthority("ADMIN", "USER").and().authorizeRequests().antMatchers("/admin/**")
-				.hasAuthority("ADMIN").anyRequest().permitAll().and().formLogin().loginPage("/login")
-				.successHandler(successHandler).failureHandler(failureHandler).usernameParameter("email").permitAll()
-				.and().logout().logoutUrl("/logout").deleteCookies("remember-me").logoutSuccessUrl("/login?logout")
-				.permitAll().and().rememberMe().and().csrf().disable();
+				.hasAnyAuthority("ADMIN", "USER").and().authorizeRequests().antMatchers("/data/**")
+				.hasAnyAuthority("ADMIN").and().authorizeRequests().antMatchers("/admin/**").hasAuthority("ADMIN")
+				.anyRequest().permitAll().and().formLogin().loginPage("/login").successHandler(successHandler)
+				.failureHandler(failureHandler).usernameParameter("email").permitAll().and().logout()
+				.logoutUrl("/logout").deleteCookies("remember-me").logoutSuccessUrl("/login?logout").permitAll().and()
+				.rememberMe().and().csrf().disable();
 
 	}
 

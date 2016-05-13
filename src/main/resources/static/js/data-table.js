@@ -1,19 +1,20 @@
-$('#datable').ready(function() {
-	var table = $('table#userDetails').DataTable({
-		'ajax' : '/data/userList',
-		'serverSide' : true,
-		columns : [ {
-			data : 'personId'
-		}, {
-			data : 'firstName',
-			
-		}, {
-			data : 'lastname'
-		}, {
-			data : 'email'
-		}, {
-			data : 'role.userRole',
-			
-		}]
-	});
-});
+$(document).ready(function() {
+var table = $('table#users').DataTable({  
+        'ajax' : '/data/users',
+        'serverSide' : true,
+        columns : [ {
+            data : 'personId'
+        }, {
+            data : 'firstname'
+        }, {
+            data : 'lastname'
+        }, {
+            data : 'email'
+        }, {
+            data : 'role.userRole',
+            render: function(data, type, row) {
+                return data ? data : '';
+            }
+        }]
+    });
+}

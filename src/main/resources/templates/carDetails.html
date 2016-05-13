@@ -73,11 +73,11 @@
 		<div class="panel panel-warning" th:each="review :${reviews}">
 			<div class="panel-heading">
 				<span class="rating text-warning" th:text="${review.rating}">/5</span>
+				<span class="text-danger"
+					th:text="${'-'+' '+review.person.firstname}"></span>
 			</div>
 			<div class="panel-body">
 				<p class="text-left" th:text="${review.review}"></p>
-				<p class="text-right text-danger"
-					th:text="${'-'+' '+review.person.firstname}"></p>
 			</div>
 		</div>
 	</div>

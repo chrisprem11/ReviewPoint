@@ -16,36 +16,26 @@
 
 package com.test.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
 import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.test.model.Person;
-import com.test.service.UserService;
+import com.test.repository.UserRepository;
 
 @RestController
-public class DataTableRestController {
+public class DataTableRestController { 
+	
+    @Autowired private UserRepository userRepository;
 
-	@Autowired
-	private UserService userService;
-
-	/**
-	 * This method is used to map requests for fetching all user's details.
-	 * 
-	 * @param input
-	 *            {@link DataTablesInput} object
-	 * @return {@link User} DataTable
-	 */
-	@JsonView(DataTablesOutput.View.class)
-	@RequestMapping(value = { "/data/userList" }, method = RequestMethod.GET)
-	public DataTablesOutput<Person> userList(@Valid DataTablesInput input) {
-		return userService.findAllUsers(input);
-	}
+    @JsonView(DataTablesOutput.View.class)
+    @RequestMapping(value = "/data/users", method = RequestMethod.GET)
+    public @ResponseBody DataTablesOutput<Person> getUsers(DataTablesInput input) {
+        return userRepository.findAll(input);
+    }
 }

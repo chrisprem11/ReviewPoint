@@ -3,12 +3,14 @@ package com.test.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
-import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 
 import com.test.DTO.UserDTO;
 import com.test.model.Person;
@@ -16,6 +18,7 @@ import com.test.repository.RoleRepository;
 import com.test.repository.UserRepository;
 
 @Service
+@Transactional
 public class UserService {
 	
 	@Autowired
@@ -23,6 +26,8 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	private static final int PAGE_SIZE = 20;
 	
 	
 	
@@ -49,8 +54,10 @@ public class UserService {
 		return users;
 	}
 	
-	public DataTablesOutput<Person> findAllUsers(DataTablesInput input) {
-		return userRepository.findAll(input);
-	}
+	public Page<Person> getPersonLog(Integer pageNumber) {
+        PageRequest request =
+            new PageRequest(pageNumber - 1, PAGE_SIZE, Sort.Direction.DESC, "firstname");
+        return userRepository.findAll(request);
+    }
  
 }

@@ -30,4 +30,8 @@ public class AdminController {
 		return new ModelAndView("success", "success", "Successfully Added !");
 	}
 
+	@RequestMapping(value="/admin/users", method =RequestMethod.GET)
+	public ModelAndView getUsers(){
+		return new ModelAndView("userList");
+	}
 }

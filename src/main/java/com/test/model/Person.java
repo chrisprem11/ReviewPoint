@@ -2,39 +2,48 @@ package com.test.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
+import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import java.util.List;
 
 /**
  * The persistent class for the person database table.
  * 
  */
 @Entity
-@Table(name="person")
-@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
+@Table(name = "person")
+@NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p")
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="person_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "person_id")
 	private Long personId;
 
+	@JsonView(DataTablesOutput.View.class)
 	private String email;
 
+	@JsonView(DataTablesOutput.View.class)
 	private String firstname;
 
+	@JsonView(DataTablesOutput.View.class)
 	private String lastname;
 
+	@JsonView(DataTablesOutput.View.class)
 	private String password;
 
-	//bi-directional many-to-one association to Role
+	// bi-directional many-to-one association to Role
 	@ManyToOne
-	@JoinColumn(name="role_id")
+	@JoinColumn(name = "role_id")
+	@JsonView(DataTablesOutput.View.class)
 	private Role role;
 
-	//bi-directional many-to-one association to Review
-	@OneToMany(mappedBy="person")
+	// bi-directional many-to-one association to Review
+	@OneToMany(mappedBy = "person")
 	private List<Review> reviews;
 
 	public Person() {
