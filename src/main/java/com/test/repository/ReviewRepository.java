@@ -6,13 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.test.model.Car;
+import com.test.model.Review;
 
 @Repository
-public interface CarRepositroy extends JpaRepository<Car, Long> {
+public interface ReviewRepository extends JpaRepository<Review, Long> {
 	
-	public List<Car> findAllByCarId(Long id);
-	
-	public Car findCarByCarId(Long id);
+	public List<Review> findReviewByCar(Car car);
 
-	
 }

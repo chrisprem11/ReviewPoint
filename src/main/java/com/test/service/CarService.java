@@ -29,14 +29,20 @@ public class CarService {
 	}
 
 	public List<Car> getAllCars() {
-		List<Car> carList =carRepository.findAll();
+		List<Car> carList = carRepository.findAll();
 		return carList;
 
 	}
-	
-	public List<Car> getCarDetails(Long id){
+
+	public List<Car> getCarDetails(Long id) {
 		List<Car> carDetails = carRepository.findAllByCarId(id);
 		return carDetails;
+	}
+
+	public Car getCar(Long id) {
+		Car carId = carRepository.findCarByCarId(id);
+		return carId;
+
 	}
 
 }
