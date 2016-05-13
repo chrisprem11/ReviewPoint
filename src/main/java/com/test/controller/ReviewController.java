@@ -5,7 +5,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.test.DTO.ReviewDTO;
@@ -19,15 +18,15 @@ public class ReviewController {
 	private ReviewService reviewService;
 
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
-	public ModelAndView getReview(ReviewDTO reviewDTO, Authentication authentication, RedirectAttributes attributes) {
+	public String getReview(ReviewDTO reviewDTO, Authentication authentication, RedirectAttributes attributes) {
 		Review review = reviewService.getReviews(reviewDTO, authentication);
 		if (null == review) {
 
-			return new ModelAndView("carDetails", "error","Opeartion Failed !");
+			return "Opeartion Failed !";
 		}
 		attributes.addFlashAttribute("success", "Review Submitted Successfully !");
 		
-		return new ModelAndView("redirect:/viewCars");
+		return ("redirect:/viewCars/"+reviewDTO.getCarId());
 	}
 
 }

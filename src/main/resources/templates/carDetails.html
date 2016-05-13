@@ -68,6 +68,7 @@
 	<hr />
 
 	<div class="container">
+		<h3 class="text-danger" th:text="${success}"></h3>
 		<h1 class="text-primary">Related Reviews</h1>
 		<div class="panel panel-warning" th:each="review :${reviews}">
 			<div class="panel-heading">
@@ -87,7 +88,7 @@
 				<h1 class="text-primary">Add your review.</h1>
 				<h3 class="popover popover-right" id="info"></h3>
 				<h4 class="text-danger" th:text="${error}"></h4>
-				<h4 class="text-danger" th:text="${success}"></h4>
+
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6">
 				<form role="form" th:action="@{/review}" th:object="${reviewData}"

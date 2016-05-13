@@ -35,7 +35,7 @@ public class ReviewService {
 
 	public List<Review> fetchReviews(Car car, Long carId) {
 		Car cars =carService.getCar(carId);
-		List<Review> allReviews= reviewRepository.findReviewByCar( cars);
+		List<Review> allReviews= reviewRepository.findReviewByCar(cars);
 		return allReviews;
 	}
 
