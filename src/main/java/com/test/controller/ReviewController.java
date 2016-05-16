@@ -22,7 +22,7 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 
-	@RequestMapping(value = "/review", method = RequestMethod.POST)
+	@RequestMapping(value = {"/review"}, method = RequestMethod.POST)
 	public String getReview(ReviewDTO reviewDTO, Authentication authentication, RedirectAttributes attributes) {
 		Review review = reviewService.getReviews(reviewDTO, authentication);
 		if (null == review) {
@@ -34,7 +34,7 @@ public class ReviewController {
 		return ("redirect:/viewCars/"+reviewDTO.getCarId());
 	}
 	
-	@RequestMapping(value = "reviews/pages/{pageNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "user/reviews/pages/{pageNumber}", method = RequestMethod.GET)
 	public String getReviewPage(@PathVariable Integer pageNumber, Model model) {
 	    Page<Review> page = reviewService.getReviewLog(pageNumber);
 	    List<Review> reviews =page.getContent();
@@ -49,7 +49,7 @@ public class ReviewController {
 	    model.addAttribute("currentIndex", current);
 	    model.addAttribute("totalPageCount",totalPageCount);
 
-	    return "users";
+	    return "allReviews";
 	}
 
 }
