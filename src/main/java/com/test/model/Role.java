@@ -2,6 +2,11 @@ package com.test.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.util.List;
 
 
@@ -19,6 +24,7 @@ public class Role implements Serializable {
 	@Column(name="role_id")
 	private Integer roleId;
 
+	@JsonView(DataTablesOutput.View.class)
 	@Column(name="user_role")
 	private String userRole;
 

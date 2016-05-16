@@ -21,10 +21,12 @@ public class Person implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(DataTablesOutput.View.class)
 	@Column(name = "person_id")
 	private Long personId;
 
 	@JsonView(DataTablesOutput.View.class)
+	@Column(name="email")
 	private String email;
 
 	@JsonView(DataTablesOutput.View.class)
@@ -37,9 +39,10 @@ public class Person implements Serializable {
 	private String password;
 
 	// bi-directional many-to-one association to Role
+	
 	@ManyToOne
-	@JoinColumn(name = "role_id")
 	@JsonView(DataTablesOutput.View.class)
+	@JoinColumn(name = "role_id")
 	private Role role;
 
 	// bi-directional many-to-one association to Review

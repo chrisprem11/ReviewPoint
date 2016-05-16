@@ -21,21 +21,22 @@ import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
 import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.test.model.Person;
-import com.test.repository.UserRepository;
+import com.test.service.UserService;
 
 @RestController
 public class DataTableRestController { 
 	
-    @Autowired private UserRepository userRepository;
+    
+    @Autowired
+    private UserService userService;
 
     @JsonView(DataTablesOutput.View.class)
     @RequestMapping(value = "/data/users", method = RequestMethod.GET)
-    public @ResponseBody DataTablesOutput<Person> getUsers(DataTablesInput input) {
-        return userRepository.findAll(input);
+    public DataTablesOutput<Person> getUsers(DataTablesInput input) {
+        return userService.findAllUsers(input);
     }
 }

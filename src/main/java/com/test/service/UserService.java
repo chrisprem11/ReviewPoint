@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
+import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 import com.test.DTO.UserDTO;
 import com.test.model.Person;
@@ -59,5 +62,9 @@ public class UserService {
             new PageRequest(pageNumber - 1, PAGE_SIZE, Sort.Direction.DESC, "firstname");
         return userRepository.findAll(request);
     }
+	
+	public DataTablesOutput<Person> findAllUsers(DataTablesInput input) {
+		return userRepository.findAll(input);
+	}
  
 }
