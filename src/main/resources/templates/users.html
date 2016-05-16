@@ -10,20 +10,44 @@
 		<h2 class="text-danger">The Review Point</h2>
 	</div>
 	<div th:include="header :: header"></div>
-	<div class="container">
-		<div class="table-responsive" id="datable">
-			<table class="table table-hover table-responsive table-bordered"
-				id="userDetails">
-				<thead>
-					<tr>
-						<th>Person Id</th>
-						<th>Firstname</th>
-						<th>Lastname</th>
-						<th>Email Address</th>
+	<div th:each="review :${reviews}">
+			<p th:text="${review.review}"></p>
+	</div>
 
-					</tr>
-				</thead>
-			</table>
+	<div class="container-fluid">
+		<div class="col-md-12 text-center">
+			<div class="pagination pagination-centered">
+				<ul class="pagination">
+					<li th:class="${currentIndex==1}? 'disabled' : ''"><span
+						th:if="${currentIndex==1}">First</span> <a
+						th:if="${currentIndex !=1}" th:href="@{/reviews/pages/1}">First</a></li>
+
+					<li th:class="${currentIndex!=1} ? '' : 'disabled'"><span
+						th:if="${currentIndex==1}">&lt;&lt;</span><a
+						th:if="${currentIndex!=1}"
+						th:href="@{/reviews/pages/}+${currentIndex-1}"
+						title="Go to previous page">&lt;&lt;</a></li>
+
+					<li th:each="item : ${#numbers.sequence(beginIndex,endIndex)}"
+						th:class="${item==currentIndex ? 'active' : ''}"><span
+						th:if="${item==currentIndex}" th:text="${item}">1</span><a
+						th:if="${item!=currentIndex}" th:href="@{/reviews/pages/}+${item}"><span
+							th:text="${item}"> 1</span></a></li>
+
+					<li th:class="${currentIndex != totalPageCount}? '' :'disabled'">
+						<span th:if="${currentIndex == totalPageCount}">&gt;&gt;</span><a
+						th:if="${currentIndex != totalPageCount}"
+						th:href="@{/reviews/pages/}+${currentIndex+1}"
+						title="Go to next page">&gt;&gt;</a>
+					</li>
+
+					<li th:class="${currentIndex==totalPageCount} ? 'disabled' : ''">
+						<span th:if="${currentIndex == totalPageCount}">Last</span> <a
+						th:if="${currentIndex != totalPageCount}"
+						th:href="@{/reviews/pages/}+${totalPageCount}">Last</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div th:include="footer :: footer"></div>
