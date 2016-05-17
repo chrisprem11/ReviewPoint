@@ -14,7 +14,6 @@ import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
 import com.test.DTO.UserDTO;
 import com.test.model.Person;
 import com.test.repository.RoleRepository;
@@ -34,13 +33,15 @@ public class UserService {
 	
 	
 	
-	public Person saveDetails(UserDTO userDTO){
+	public Person saveDetails(UserDTO userDTO,String filepath){
 		BCryptPasswordEncoder passEncoder =new  BCryptPasswordEncoder();
 		Person newUser= new Person();
 		newUser.setFirstname(userDTO.getFirstname());
 		newUser.setLastname(userDTO.getLastname());
 		newUser.setEmail(userDTO.getEmail());
 		newUser.setPassword(passEncoder.encode(userDTO.getPassword()));
+		newUser.setUploadFile(filepath);
+
 	
 		newUser.setRole(roleRepository.findByUserRole("USER"));
 		return userRepository.save(newUser);
@@ -66,5 +67,6 @@ public class UserService {
 	public DataTablesOutput<Person> findAllUsers(DataTablesInput input) {
 		return userRepository.findAll(input);
 	}
+	
  
 }

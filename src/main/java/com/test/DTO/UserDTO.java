@@ -1,11 +1,18 @@
 package com.test.DTO;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class UserDTO {
+
 
 	private String firstname;
 	private String lastname;
 	private String email;
 	private String password;
+
+	
+
+	
 
 	public String getFirstname() {
 		return firstname;

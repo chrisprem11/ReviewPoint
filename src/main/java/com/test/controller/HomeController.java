@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.test.DTO.UserDTO;
 import com.test.event.SignupSuccessEvent;
 import com.test.model.Person;
-import com.test.model.Review;
 import com.test.security.CurrentUser;
 import com.test.service.UserService;
 
@@ -43,8 +42,8 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "userRegistration", method = RequestMethod.POST)
-	public ModelAndView saveDetails(UserDTO userDTO, Model model, WebRequest request) {
-		Person person = userService.saveDetails(userDTO);
+	public ModelAndView saveDetails(UserDTO userDTO, Model model, WebRequest request, String filepath) {
+		Person person = userService.saveDetails(userDTO,filepath);
 		try {
 			eventPublisher.publishEvent(new SignupSuccessEvent(request.getLocale(), person));
 		} catch (Exception e) {

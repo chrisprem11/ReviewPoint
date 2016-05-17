@@ -37,13 +37,24 @@ public class Person implements Serializable {
 
 	@JsonView(DataTablesOutput.View.class)
 	private String password;
+	
+	private String uploadFile;
 
 	// bi-directional many-to-one association to Role
+	
 	
 	@ManyToOne
 	@JsonView(DataTablesOutput.View.class)
 	@JoinColumn(name = "role_id")
 	private Role role;
+
+	public String getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(String uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 
 	// bi-directional many-to-one association to Review
 	@OneToMany(mappedBy = "person")

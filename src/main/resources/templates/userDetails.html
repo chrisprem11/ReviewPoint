@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>User Details</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:include="header :: header"></div>
+	<div class="container">
+		<div class="row">
+			<div class="panel panel-warning col-md-12 colsm-12 col-xs-12">
+				<div class="panel-heading" th:each="user : ${details}">
+					<h2 th:text="${user.firstname} + ' ' +${user.lastname}"></h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-3">
+							<img th:src="@{/documents/batmobile.jpg}"
+								class="img-responsive img-rounded" alt="Image" width="340"
+								height="240"></img>
+						</div>
+						<div th:each="user : ${details}"
+							class="col-md-3 col-sm-3 col-xs-3">
+							<h3 class="text-danger">
+								<strong>Email</strong>
+							</h3>
+							<h3 class="text-primary" th:text="${user.email}"></h3>
+						</div>
+						<div th:each="user : ${details}"
+							class="col-md-3 col-sm-3 col-xs-3">
+							<h3 class="text-danger">
+								<strong>Image</strong>
+							</h3>
+							<h3 class="text-primary" th:text="${user.uploadFile}"></h3>
+						</div>
+						<div th:each="user : ${details}"
+							class="col-md-3 col-sm-3 col-xs-3">
+							<h3 class="text-danger">
+								<strong>Role</strong>
+							</h3>
+							<h3 class="text-primary" th:text="${user.role.userRole}"></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
