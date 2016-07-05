@@ -5,9 +5,12 @@
 <title>Cars</title>
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 <link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 </head>
 <body>
-	<div th:include="header :: header"></div>
+	<div class="container-fluid">
+		<div th:include="header :: header"></div>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div th:each="car : ${cars}" class="col-md-4 col-sm-4 col-xs-4">

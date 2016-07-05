@@ -5,12 +5,12 @@
 <title>Login</title>
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 <link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 </head>
 <body>
-	<div class="jumbotron">
-		<h3 class="text-danger">The Review Point</h3>
+	<div class="container-fluid">
+		<div th:include="header :: header"></div>
 	</div>
-	<div th:include="header :: header"></div>
 	<div class="row">
 		<div class="col-md-4 col-sm-4 col-xs-4"></div>
 		<div class="col-md-4 col-sm-4 col-xs-4">

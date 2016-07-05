@@ -1,4 +1,49 @@
 .form #myform {
-margin-left: 250px;
-padding-top: 4cm;	
+	margin-left: 250px;
+	padding-top: 4cm;
+}
+
+.jumbotron#margin {
+	background-image: url("/img/car1.jpg");
+	height: 300px;
+	margin-bottom: 0px;
+}
+
+.jumbotron h2#text {
+	color: aqua;
+	text-decoration: blink;
+	font-family:fantasy;
+	font-size: 45px;
+	position: relative;
+	text-align: left;
+	padding-top: 130px;
+	font-size-adjust: inherit;
+	font-style: oblique;
+	font-weight: 100;
+	font-stretch:extra-expanded;
+	text-shadow: white;
+	text-transform: capitalize;
+	
+}
+
+.footer {
+	padding-top: 150px;
+}
+
+.footstyle h5{
+	font-family: cursive;
+	font-style: italic;
+	font-variant: normal;
+	text-shadow: gray;
+	font-size: 15px;
+	color: maroon;
+	font-weight: bold;
+}
+
+h2#position{
+	text-align: center;
+}
+
+.container-fluid#bar{
+	margin-bottom: 0px;
 }

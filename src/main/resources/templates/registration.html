@@ -4,14 +4,15 @@
 <title>Login</title>
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 <link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 </head>
 <body>
-	<div class="jumbotron">
-		<h3>The Review Point</h3>
+	<div class="container-fluid">
+		<div th:include="header :: header"></div>
 	</div>
-	<div th:include="header :: header"></div>
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">

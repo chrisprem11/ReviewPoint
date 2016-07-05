@@ -16,12 +16,12 @@
 		$('.rating').star_rating();
 	});
 </script>
+<link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 </head>
 <body>
-	<div class="jumbotron">
-		<h2 class="text-danger">The Review Point</h2>
+	<div class="container-fluid">
+		<div th:include="header :: header"></div>
 	</div>
-	<div th:include="header :: header"></div>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2 col-sm-2 col-xs-2"></div>
