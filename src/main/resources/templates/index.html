@@ -2,22 +2,79 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Review Point</title>
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 <link th:href="@{/css/style.css}" rel="stylesheet" />
 <link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<div class="container-fluid">
-		<div th:include="header :: header"></div>
+		<div class="jumbotron" id="margin">
+			<h2 id="animate">The Review Point</h2>
+		</div>
+		<nav class="navbar navbar-inverse" id="bar">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/" id="first">The Review Point</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/">Home</a></li>
+					<li><a href="/registration">Register Here</a></li>
+					<li><a href="/addCar">Add Car</a></li>
+					<li><a href="/viewCars">Cars</a></li>
+					<li><a href="/admin/users">Users</a></li>
+					<li><a href="/user/reviews/pages/1">All Reviews</a></li>
+					<li><a href="/user/images">Users Details</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/login">Login</a></li>
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
 	</div>
 	<div class="container">
-		<h2 id="position" class="text-primary">
+		<h2 id="position">
 			Welcome !<span sec:authentication="principal.firstName"></span>
 		</h2>
 	</div>
-	<div class="footer">
-		<div th:include="footer :: footer"></div>
+	<hr />
+	<div class="container">
+		<p>You can hide this text.</p>
+		<p style="text-align: center" id="p1">Welcome to the review point.</p>
+
+		<button class="btn btn-info btn-sm" id="button1">click here</button>
+		<div id="l" style="background-color: yellow">
+			<div id="p">
+				<p>
+					<i>The Review Point</i>
+				</p>
+			</div>
+		</div>
+		<div style="text-align: center">
+
+			<div id="content">
+				<p>Get the latest reviews.Submit yours</p>
+				<p>Go through the various genuine reviews before making your
+					final call.</p>
+				<p>
+					We, at <i><strong>The Review Point</strong></i>help you at choosing
+					your perfect match.<br /> Make a profile and be an authentic user
+					of our website. whenever you make a call submit your own reviews<br />
+					to make this site look even better.Come join us and let's explore
+					all the fun with unique experiences.
+				</p>
+
+			</div>
+			<button class="btn btn-warning btn-sm" id="button2">Toggle</button>
+		</div>
+		<div class="footer">
+			<div th:include="footer :: footer"></div>
+		</div>
 	</div>
+
+	<script th:src="@{/js/jquery-1.12.3.js}" type="text/javascript"></script>
+	<script th:src="@{/js/mystyle.js}" type="text/javascript"></script>
 </body>
 </html>

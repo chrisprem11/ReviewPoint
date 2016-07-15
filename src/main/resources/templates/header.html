@@ -10,13 +10,15 @@
 <script type="text/javascript" th:src="@{/js/data-table.js}"></script>
 <link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<div class="container-fluid ">
 		<div th:fragment="header">
 			<div class="jumbotron" id="margin">
-				<h2 id="text">The Review Point</h2>
+				<div id="animate1">
+					<h2 id="text">The Review Point</h2>
+				</div>
 			</div>
-			<nav class="navbar navbar-inverse">
+			<nav class="navbar navbar-inverse" id="bar">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<a class="navbar-brand" href="/">The Review Point</a>
@@ -38,5 +40,7 @@
 			</nav>
 		</div>
 	</div>
+	<script th:src="@{/js/jquery-1.12.3.js}" type="text/javascript"></script>
+	<script th:src="@{/js/mystyle.js}" type="text/javascript"></script>
 </body>
 </html>

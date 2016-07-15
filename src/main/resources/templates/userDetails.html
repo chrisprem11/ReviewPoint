@@ -2,50 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, intial-scale=1" />
 <title>User Details</title>
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 <link th:href="@{/css/styles.css}" rel="stylesheet" />
 <link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<div class="container-fluid">
 		<div th:include="header :: header"></div>
 	</div>
-	<div class="container">
+	<div class="container" id="bar">
 		<div class="row">
-			<div class="panel panel-warning col-md-12 colsm-12 col-xs-12">
-				<div class="panel-heading" th:each="user : ${details}">
-					<h2 th:text="${user.firstname} + ' ' +${user.lastname}"></h2>
+			<div class="col-md-3" th:each="user:${details}" id="userData">
+				<div>
+					<img src="/img/23-3.jpg" class="img-circle" id="image_height" />
 				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-md-3 col-sm-3 col-xs-3">
-							<img th:src="@{/documents/batmobile.jpg}"
-								class="img-responsive img-rounded" alt="Image" width="340"
-								height="240"></img>
-						</div>
-						<div th:each="user : ${details}"
-							class="col-md-3 col-sm-3 col-xs-3">
-							<h3 class="text-danger">
-								<strong>Email</strong>
-							</h3>
-							<h3 class="text-primary" th:text="${user.email}"></h3>
-						</div>
-						<div th:each="user : ${details}"
-							class="col-md-3 col-sm-3 col-xs-3">
-							<h3 class="text-danger">
-								<strong>Image</strong>
-							</h3>
-							<h3 class="text-primary" th:text="${user.uploadFile}"></h3>
-						</div>
-						<div th:each="user : ${details}"
-							class="col-md-3 col-sm-3 col-xs-3">
-							<h3 class="text-danger">
-								<strong>Role</strong>
-							</h3>
-							<h3 class="text-primary" th:text="${user.role.userRole}"></h3>
-						</div>
-					</div>
+				<div>
+					<h3 class="text-primary">
+						<span th:text="${user.firstname}+' '+${user.lastname}"></span>
+					</h3>
+				</div>
+				<div>
+					<h4 class="text-danger">
+						<span th:text="${user.email}"></span>
+					</h4>
+
+				</div>
+				<div>
+					<h4 class="text-danger">
+						<span th:text="${user.role.userRole}"></span>
+					</h4>
+
 				</div>
 			</div>
 		</div>

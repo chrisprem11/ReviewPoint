@@ -20,11 +20,11 @@
 </script>
 
 </head>
-<body>
-	<div class="container-fluid" id="bar">
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<div class="container-fluid" >
 		<div th:include="header :: header"></div>
 	</div>
-	<div class="container">
+	<div class="container" id="bar">
 		<div class="row">
 			<div class="panel panel-info col-md-12 colsm-12 col-xs-12">
 				<div class="panel-heading" th:each="carDetail : ${details}">
