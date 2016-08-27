@@ -270,8 +270,9 @@ footer p { font-size: 13px; margin: 0; }
 .wp1, .wp2, .wp3, .wp4, .wp5, .wp6 { visibility: hidden; }
 .bounceInLeft, .bounceInRight, .fadeInUp { visibility: visible; }
 .back h4 {text-align: center;}
-.jumbotron {
-	background-image: url("/img/batmobile.jpg");
+
+body {
+	background-image: url("/img/bg.jpg");
+	background-size:100% 100%;
 	background-repeat: no-repeat;
-	background: olive;
 }

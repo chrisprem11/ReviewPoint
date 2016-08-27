@@ -2,11 +2,16 @@
 <head>
 <meta charset="UTF-8" />
 <title>Registration</title>
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Berkshire+Swash
+|Kaushan+Script|Nosifer|Philosopher|David+Libre}"
+	rel="stylesheet" />
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 <link th:href="@{/css/style.css}" rel="stylesheet" />
 <link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target=".navbar" data-offset="50"
+	class="bfont">
 	<div class="container-fluid">
 		<div th:include="header :: header"></div>
 	</div>
@@ -17,10 +22,10 @@
 				<h3 id="info"></h3>
 				<h3>
 					<span th:text="${error}"></span>
-					
+
 				</h3>
-				<h4 id="errorMsg" class="text-danger" style="font-family: sans-serif;font-size: 15px;
-				text-align:right;"></h4>
+				<h4 id="errorMsg" class="text-danger"
+					style="font-family: sans-serif; font-size: 15px; text-align: right;"></h4>
 
 				<div class="form" id="myform">
 					<form th:action="userRegistration" th:object="${userData}"
@@ -48,7 +53,8 @@
 							<span id="upload-file-message"></span>
 						</div>
 
-						<input id="update" type="submit" onclick="return validate()" class="btn btn-success" value="Submit"/>
+						<input id="update" type="submit" onclick="return validate()"
+							class="btn btn-success" value="Submit" />
 					</form>
 
 				</div>

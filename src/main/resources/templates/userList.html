@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <title>The Review Point- Users</title>
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Berkshire+Swash
+|Kaushan+Script|Nosifer|Philosopher|David+Libre}"
+	rel="stylesheet" />
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 <link th:href="@{/css/style.css}" rel="stylesheet" />
 <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
@@ -12,12 +16,15 @@
 <link th:href="@{/css/customstyle.css}" rel="stylesheet" />
 
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target=".navbar" data-offset="50"
+	class="bfont">
 	<div class="container-fluid">
 		<div th:include="header :: header"></div>
 	</div>
 	<div class="container">
-	<h2><span th:text="user"></span></h2>
+		<h2>
+			<span th:text="user"></span>
+		</h2>
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-4"></div>
 			<div class="col-md-7 col-sm-7 col-xs-7">

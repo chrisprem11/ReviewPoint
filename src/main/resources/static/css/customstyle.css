@@ -1,85 +1,94 @@
+.menu a {
+	font-family: 'Philosopher', sans-serif;
+	color: white;
+}
+
+.bfont {
+	font-family: 'David Libre', serif;
+	color: maroon;
+}
+
 .form #myform {
 	margin-left: 250px;
 	padding-top: 4cm;
 }
 
 .jumbotron#margin {
-	background-image: url("/img/car1.jpg");
-	height: 300px;
+	background-image: url("/img/lamb.jpg");
+	height: 270px;
 	margin-bottom: 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .jumbotron h2#text {
-	color: aqua;
+	color: yellow;
 	text-decoration: blink;
-	font-family:fantasy;
-	font-size: 45px;
+	font-family: 'Nosifer', cursive;
+	font-size: 30px;
 	position: relative;
 	text-align: left;
-	padding-top:150px;
-	padding-left:30px;
 	font-size-adjust: inherit;
 	font-style: oblique;
 	font-weight: 100;
-	font-stretch:extra-expanded;
+	font-stretch: extra-expanded;
 	text-shadow: white;
 	text-transform: capitalize;
-
-	
+	text-decoration: blink;
+	padding-top: 140px;
 }
 
-.jumbotron h2#animate {
-	color: aqua;
-	text-decoration: blink;
-	font-family:fantasy;
-	font-size: 45px;
-	position: relative;
-	text-align: left;
-	font-size-adjust: inherit;
-	font-style: oblique;
-	font-weight: 100;
-	font-stretch:extra-expanded;
-	text-shadow: white;
-	text-transform: capitalize;
-	
+h2#position {
+	font-family: 'Berkshire Swash', cursive;
+	color: yellow;
+}
+
+.foot h5 {
+	font-family: 'Kaushan Script', cursive;
+}
+
+.bfont {
+	font-family: 'David Libre', serif;
+	font-size: 12px;
+	color: orange;
 }
 
 .footer {
 	padding-top: 80px;
 }
 
-.footstyle h5{
-	font-family: cursive;
-	font-style: italic;
+.footstyle h5 {
+	font-family: 'Kaushan Script', cursive;
 	font-variant: normal;
 	text-shadow: gray;
 	font-size: 15px;
-	color: maroon;
-	font-weight: bold;
+	color: yellow;
 }
 
 h2 {
+	font-family: 'Berkshire Swash', cursive;
 	text-align: center;
-	color: maroon;
+	color: white;
 	font-size: 25px;
 }
 
-#bar{
+#bar {
 	margin-top: 0px;
+	height: 15px;
 }
 
 .size {
 	height: 150px;
 	width: 750px;
-	
 }
 
-.form-group label{
-	color: maroon;
+.form-group label {
+	font-family: 'David Libre', serif;
 	font-size: 15px;
+	color: white;
 }
 
-.container#margin{
+.container#margin {
 	margin-top: 20px;
 }
 
@@ -88,10 +97,9 @@ h2 {
 	width: 100px;
 	margin-left: 30px;
 }
-#userData{
-	margin-top: 10px
-	
-	border-color: red;
+
+#userData {
+	margin-top: 10px border-color: red;
 }
 
 .footer h5 {
@@ -104,4 +112,67 @@ input {
 	font-stretch: semi-expanded;
 	font-family: sans-serif;
 	font-size: medium;
+}
+
+@media screen and (max-width:1200px) {
+	.jumbotron#margin {
+		background-image: url("/img/lamb.jpg");
+		margin-bottom: 0px;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+}
+
+@media screen and (max-width:860px) {
+	.navbar {
+		width: 100%;
+	}
+	.jumbotron#margin {
+		background-image: url("/img/lamb.jpg");
+		margin-bottom: 0px;
+		background-repeat: no-repeat;
+		background-size: 100% 80%;
+	}
+	.jumbotron h2#text {
+		color: yellow;
+		display: inline;
+		text-decoration: blink;
+		font-family: 'Nosifer', cursive;
+		font-size: 120%;
+		text-align: left;
+		font-size-adjust: inherit;
+		font-style: oblique;
+		font-weight: 100;
+		font-stretch: extra-expanded;
+		text-shadow: white;
+		text-transform: capitalize;
+		text-decoration: blink;
+		padding-top: 240px;
+	}
+}
+
+@media screen and (max-width:540px) {
+	.jumbotron#margin {
+		background-image: url("/img/lamb.jpg");
+		margin-bottom: 0px;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+	.jumbotron h2#text {
+		padding-top: 120%;
+		display: none;
+	}
+	.footer h5 {
+		margin-left: 0px;
+	}
+}
+
+@media screen and (min-width:340px) {
+	.jumbotron#margin {
+		background-image: url("/img/lamb.jpg");
+		margin-bottom: 0px;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+	
 }

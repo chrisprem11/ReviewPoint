@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	
 	$("#animate").animate({
-     	top:'150px',
-        left: '30px',
+     	top:'120px',
+        left: '25px',
         height: '+=10px',
         width: '+=12px',
      },"slow");
